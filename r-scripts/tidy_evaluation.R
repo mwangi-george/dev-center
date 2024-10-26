@@ -10,9 +10,10 @@ filter_column <- function(dataset, col_name){
     filter({{col_name}} > 30)
 }
 
-create_column <- function(dataset, col_name){
+create_column <- function(dataset, col_name, test){
   dataset |> 
-    mutate(age_plus_five = {{col_name}} + 5) 
+    mutate(age_plus_five = {{col_name}} + 5) %>% 
+    mutate({{test}} := age_plus_five)
 }
 
 sample_df <- tibble(
@@ -24,5 +25,5 @@ sample_df <- tibble(
 sample_df |> 
   select_column(age) |> 
   filter_column(age) |> 
-  create_column(age)
+  create_column(age, kdf)
 

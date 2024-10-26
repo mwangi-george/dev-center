@@ -165,6 +165,10 @@ cython_debug/
 
 
 # R -----------------------------
+
+# Rstudio project name
+dev-center.Rproj
+
 # History files
 .Rhistory
 .Rapp.history
